@@ -1,0 +1,59 @@
+html {
+  font: normal 100%/1.5 "Libre Baskerville", serif;
+  color: #222;
+}
+
+.max-length {
+  max-width: 42em;
+}
+
+.book-ends {
+  background-color: #1e7c74;
+  color: #fff;
+}
+
+.chapter-ends {
+  background-color: #259f95;
+  border: 1px solid #1e7c74;
+  color: #fff;
+}
+
+.chapter-name {
+  border-top: 0;
+  border-radius: 0 0 6px 6px;
+}
+
+.old-book-style p {
+  margin: 0;
+  text-indent: 1.3em;
+}
+
+.old-book-style :first-child {
+  text-indent: 0;
+}
+
+.old-book-style :first-child::first-line {
+  color: #1e7c74;
+  font-style: italic;
+}
+
+.inset-img {
+  border: 1px solid #259f95;
+  border-radius: 6px;
+}
+
+.chapter-btn {
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+}
+
+.chapter-btn:hover,
+.chapter-btn:focus {
+  background-color: #1e7c74;
+}
+
+.chapter-copyright {
+  border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+}

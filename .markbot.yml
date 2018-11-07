@@ -1,0 +1,65 @@
+repo: 'kraken-good-accessibility'
+canvasCourse: 'web-dev-3'
+
+inherit:
+  - naming-restrict-live
+  - git-2
+  - html
+  - css
+  - aria-landmarks
+  - google-fonts
+  - css-order-modules-type-main
+  - nav-focus
+  - nav-hover
+
+html:
+  - path: 'index.html'
+    has:
+      - ['link[href*="Libre+Baskerville"]', 'The Google Font, `Libre Baskerville` (regular, italic & bold), is missing']
+      - 'nav[role="navigation"] > ul > li:first-child > a[aria-label]'
+      - 'nav[role="navigation"] > ul > li:first-child i[role="presentation"]'
+      - 'nav[role="navigation"] > ul > li:nth-child(2) > a[aria-label]'
+      - 'nav[role="navigation"] > ul > li:nth-child(2) i[role="presentation"]'
+      - 'nav[role="navigation"] > ul > li:last-child > a[aria-label]'
+      - 'nav[role="navigation"] > ul > li:last-child i[role="presentation"]'
+      - 'footer nav > ul > li:first-child > a[aria-label]'
+      - 'footer nav > ul > li:first-child i[role="presentation"]'
+      - 'footer nav > ul > li:nth-child(2) > a[aria-label]'
+      - 'footer nav > ul > li:nth-child(2) i[role="presentation"]'
+      - 'footer nav > ul > li:last-child > a[aria-label]'
+      - 'footer nav > ul > li:last-child i[role="presentation"]'
+      - '.no-print'
+    hasNot:
+      - 'nav[role="navigation"] > ul > li:first-child > a[aria-label=""]'
+      - 'nav[role="navigation"] > ul > li:nth-child(2) > a[aria-label=""]'
+      - 'nav[role="navigation"] > ul > li:last-child > a[aria-label=""]'
+      - 'article footer nav[role="navigation"]'
+      - 'article footer[role="contentinfo"] '
+      - 'footer nav > ul > li:first-child > a[aria-label=""]'
+      - 'footer nav > ul > li:nth-child(2) > a[aria-label=""]'
+      - 'footer nav > ul > li:last-child > a[aria-label=""]'
+
+css:
+  - path: 'css/main.css'
+    has:
+      - ['@print', '.inset-img', 'border-color', '#000']
+  - path: 'css/modules.css'
+    locked: true
+  - path: 'css/type.css'
+    locked: true
+
+files:
+  - path: 'images/icons.svg'
+    locked: true
+  - path: 'images/kraken.jpg'
+    locked: true
+
+screenshots:
+  - path: 'index.html'
+    sizes: ['print']
+  - path: 'index.html'
+    label: "Nav focus"
+    sizes: [650]
+    before: |
+      $('[role="navigation"] li:nth-child(2) a').focus();
+      done();
