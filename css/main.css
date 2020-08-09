@@ -24,7 +24,7 @@ img {
 }
 
 header {
-  background-color: #1e7c74;
+  background-image: url("../images/anchors.svg");
   color: #fff;
   font-size: 1.125rem;
   font-style: normal;
@@ -51,6 +51,7 @@ article header {
   justify-content: space-between;
   align-items: center;
   background-color: #259f95;
+  background-image: none;
   border-radius: 0 0 6px 6px;
   color: #fff;
 }
@@ -85,7 +86,7 @@ nav a {
   border: 0;
   border-radius: 6px;
   color: #fff;
-  padding: .5rem;
+  padding: 0.5rem;
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -145,14 +146,15 @@ figcaption {
 
 article footer {
   background-color: #259f95;
-  color: #fff;
+  background-image: none;
   border-radius: 6px 6px 0 0;
+  color: #fff;
 }
 
 footer {
   display: flex;
   justify-content: center;
   padding: 1rem;
-  background-color: #1e7c74;
+  background-image: url("../images/anchors.svg");
   color: #fff;
 }

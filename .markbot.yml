@@ -6,6 +6,7 @@ inherit:
   - git-2
   - html
   - css
+  - border-box
   - aria-landmarks
   - google-fonts
   - nav-focus
@@ -40,6 +41,12 @@ html:
       - 'footer nav > ul > li:nth-child(2) > a[aria-label=""]'
       - 'footer nav > ul > li:last-child > a[aria-label=""]'
 
+css:
+  - path: "css/main.css"
+    has:
+      - ["html", "text-size-adjust", "100%"]
+      - ["html", "-webkit-text-size-adjust", "100%"]
+
 files:
   - path: "images/icons.svg"
     locked: true
@@ -53,3 +60,39 @@ screenshots:
     before: |
       $('[role="navigation"] li:nth-child(2) a').focus();
       done();
+
+functionality:
+  - path: "index.html"
+    label: "Contrast"
+    tests:
+      - |
+        const rgb = function (rgbstr) {
+          const theColor = rgbstr.match(/rgba?\(([\d.]+), ([\d.]+), ([\d.]+)/);
+          theColor.shift();
+          return theColor.map((v) => parseInt(v, 10));
+        };
+
+        const luminance = function (r, g, b) {
+          var a = [r, g, b].map((v) => {
+            v /= 255;
+            return v <= 0.03928 ? v / 12.92 : Math.pow( (v + 0.055) / 1.055, 2.4 );
+          });
+
+          return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+        };
+
+        const contrast = function (fg, bg) {
+          return (luminance(fg[0], fg[1], fg[2]) + 0.05) / (luminance(bg[0], bg[1], bg[2]) + 0.05);
+        };
+
+        const header = $("body > header");
+        if (JSON.stringify(rgb(css(header).backgroundColor)) == JSON.stringify([0,0,0]) || contrast(rgb(css(header).color), rgb(css(header).backgroundColor)) < 4.5) {
+          fail('The contrast of the header’s text isn’t enough compared to the `background-color`—**double check what the header looks like if the image doesn’t show**');
+        }
+
+        const footer = $("body > footer");
+        if (JSON.stringify(rgb(css(footer).backgroundColor)) == JSON.stringify([0,0,0]) || contrast(rgb(css(footer).color), rgb(css(footer).backgroundColor)) < 4.5) {
+          fail('The contrast of the footer’s text isn’t enough compared to the `background-color`—**double check what the footer looks like if the image doesn’t show**');
+        }
+
+        pass();
