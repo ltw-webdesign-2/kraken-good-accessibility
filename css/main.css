@@ -1,59 +1,158 @@
 html {
-  font: normal 100%/1.5 "Libre Baskerville", serif;
+  box-sizing: border-box;
+  font-family: "Libre Baskerville", serif;
+  line-height: 1.5;
   color: #222;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-.max-length {
-  max-width: 42em;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-.book-ends {
+body {
+  margin: 0 auto;
+  max-width: 48em;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+header {
   background-color: #1e7c74;
   color: #fff;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: normal;
+  padding: 1rem;
 }
 
-.chapter-ends {
+header strong,
+header p {
+  margin: 0;
+  font-weight: normal;
+}
+
+.by {
+  font-style: italic;
+}
+
+article div {
+  padding: 1rem;
+}
+
+article header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #259f95;
-  border: 1px solid #1e7c74;
+  border-radius: 0 0 6px 6px;
   color: #fff;
 }
 
-.chapter-name {
-  border-top: 0;
-  border-radius: 0 0 6px 6px;
+h1 {
+  margin: 0;
+  color: #fff;
+  font-weight: normal;
+  font-size: 1.125rem;
 }
 
-.old-book-style p {
+h2 {
+  margin: 0;
+  color: #fff;
+  font-weight: normal;
+  font-size: 1.75rem;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  padding: .5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #1e7c74;
+}
+
+.icon {
+  position: relative;
+}
+
+.icon svg {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  fill: currentColor;
+}
+
+nav i {
+  width: 100%;
+  height: 100%;
+}
+
+article p {
   margin: 0;
   text-indent: 1.3em;
 }
 
-.old-book-style :first-child {
+article div :first-child {
   text-indent: 0;
 }
 
-.old-book-style :first-child::first-line {
+article div :first-child::first-line {
   color: #1e7c74;
   font-style: italic;
 }
 
-.inset-img {
+figure {
+  margin: 1.5rem 0;
+}
+
+figure img {
   border: 1px solid #259f95;
   border-radius: 6px;
+  margin-bottom: 1.5rem;
 }
 
-.chapter-btn {
-  background-color: transparent;
-  border: 0;
+figcaption {
+  padding: 0 1rem;
+  font-style: italic;
+  text-align: center;
+}
+
+article footer {
+  background-color: #259f95;
   color: #fff;
-}
-
-.chapter-btn:hover,
-.chapter-btn:focus {
-  background-color: #1e7c74;
-}
-
-.chapter-copyright {
-  border-bottom: 0;
   border-radius: 6px 6px 0 0;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #1e7c74;
+  color: #fff;
 }
