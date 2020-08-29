@@ -1,5 +1,5 @@
 repo: "kraken-good-accessibility"
-canvasCourse: "web-design-3"
+canvasCourse: "web-design-2"
 
 inherit:
   - naming-restrict-live
